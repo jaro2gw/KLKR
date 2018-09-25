@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KLKR</string>
+    <string name="plus">+</string>
+    <string name="empty_list_1">Looks like you have no clicker set up</string>
+    <string name="oops">Oops!</string>
+    <string name="empty_list_2">Add one using the button on the bottom of the screen</string>
+    <string name="title_activity_example">example</string>
+</resources>
