@@ -20,9 +20,15 @@ class ClickerAdapter(
         val btnDec = clicker.findViewById(R.id.button_dec) as Button
         val btnInc = clicker.findViewById(R.id.button_inc) as Button
 
+        val klkr = list.get(position)
+
         val countView = clicker.findViewById(R.id.count_view) as TextView
         countView.setSelectAllOnFocus(true)
-        countView.text = list.get(position).count.toString()
+        countView.text = klkr.count.toString()
+
+        val nameView = clicker.findViewById(R.id.name_view) as TextView
+        nameView.setSelectAllOnFocus(true)
+        nameView.text = klkr.name
 
         btnDec.setOnClickListener { updateQty(countView, list.get(position), -1) }
         btnInc.setOnClickListener { updateQty(countView, list.get(position), 1) }
