@@ -15,25 +15,25 @@ class ClickerAdapter(
 ) : ArrayAdapter<Clicker>(context, R.layout.clicker, list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val clicker = inflater.inflate(R.layout.clicker, parent, false)
+        val clieckerView = inflater.inflate(R.layout.clicker, parent, false)
 
-        val btnDec = clicker.findViewById(R.id.button_dec) as Button
-        val btnInc = clicker.findViewById(R.id.button_inc) as Button
+        val btnDec = clieckerView.findViewById(R.id.button_dec) as Button
+        val btnInc = clieckerView.findViewById(R.id.button_inc) as Button
 
-        val klkr = list.get(position)
+        val clicker = list[position]
 
-        val countView = clicker.findViewById(R.id.count_view) as TextView
+        val countView = clieckerView.findViewById(R.id.count_view) as TextView
         countView.setSelectAllOnFocus(true)
-        countView.text = klkr.count.toString()
+        countView.text = clicker.count.toString()
 
-        val nameView = clicker.findViewById(R.id.name_view) as TextView
+        val nameView = clieckerView.findViewById(R.id.name_view) as TextView
         nameView.setSelectAllOnFocus(true)
-        nameView.text = klkr.name
+        nameView.text = clicker.name
 
-        btnDec.setOnClickListener { updateQty(countView, list.get(position), -1) }
-        btnInc.setOnClickListener { updateQty(countView, list.get(position), 1) }
+        btnDec.setOnClickListener { updateQty(countView, clicker, -1) }
+        btnInc.setOnClickListener { updateQty(countView, clicker, +1) }
 
-        return clicker
+        return clieckerView
     }
 
     private fun updateQty(countView: TextView, element: Clicker, i: Int) {

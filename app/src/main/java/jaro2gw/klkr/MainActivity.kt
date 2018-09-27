@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ClickerAdapter(this, clickerList)
 
-        val add = findViewById<ImageButton>(R.id.addButton)
+        val add = findViewById<ImageButton>(R.id.button_add_clicker)
         add.setOnClickListener {
             clickerList.add(Clicker())
             adapter.notifyDataSetChanged()
