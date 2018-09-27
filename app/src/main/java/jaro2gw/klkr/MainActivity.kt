@@ -17,23 +17,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        clickerList.clear()
-        clickerList.add(Clicker("XD", 69))
+//        clickerList.clear()
+//        clickerList.add(Clicker("XD", 69))
 
         val adapter = ClickerAdapter(this, clickerList)
 
-        val addClickerButton = findViewById<ImageButton>(R.id.button_add_clicker)
+        val addClickerButton = findViewById<ImageButton>(R.id.imgBtn_addClicker)
+        val clickers = findViewById<ListView>(R.id.listView_clickers)
+        val empty = findViewById<LinearLayout>(R.id.linLayout_empty)
+
         addClickerButton.setOnClickListener {
+            if (clickerList.isEmpty()) empty.visibility = View.GONE
             clickerList.add(Clicker())
             adapter.notifyDataSetChanged()
         }
 
-        val clickers = findViewById<ListView>(R.id.clickers)
-        val empty = findViewById<LinearLayout>(R.id.empty)
-
         clickers.adapter = adapter
-
-        clickers.visibility = if (clickerList.isEmpty()) View.GONE else View.VISIBLE
-        empty.visibility = if (clickerList.isEmpty()) View.VISIBLE else View.GONE
     }
 }

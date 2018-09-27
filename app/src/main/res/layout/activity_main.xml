@@ -31,7 +31,7 @@
         tools:showIn="@layout/activity_main">
 
         <LinearLayout
-            android:id="@+id/empty"
+            android:id="@+id/linLayout_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/oops"
+                android:id="@+id/textView_msgOops"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/oops"
@@ -51,7 +51,7 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/empty_1"
+                android:id="@+id/textView_msg1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/empty_list_1"
@@ -59,7 +59,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/empty_2"
+                android:id="@+id/textView_msg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/empty_list_2"
@@ -67,7 +67,7 @@
         </LinearLayout>
 
         <ListView
-            android:id="@+id/clickers"
+            android:id="@+id/listView_clickers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/button_add_clicker"
+        android:id="@+id/imgBtn_addClicker"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="bottom|end"

@@ -14,28 +14,23 @@ class ClickerAdapter(context: Context, val list: MutableList<Clicker>) : ArrayAd
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val clickerView = inflater.inflate(R.layout.clicker, parent, false)
-
-        attachListenersToButtons(position, clickerView)
-
-        return clickerView
-    }
-
-    private fun attachListenersToButtons(position: Int, clickerView: View) {
         val clicker = list[position]
 
-        val countView = clickerView.findViewById<TextView>(R.id.view_count)
+        val countView = clickerView.findViewById<TextView>(R.id.textView_count)
         countView.text = clicker.count.toString()
 
-        val nameView = clickerView.findViewById<TextView>(R.id.view_name)
+        val nameView = clickerView.findViewById<TextView>(R.id.textView_name)
         nameView.text = clicker.name
 
         with(clickerView) {
-            findViewById<Button>(R.id.button_dec).setOnClickListener { updateCount(countView, clicker, -1) }
-            findViewById<Button>(R.id.button_inc).setOnClickListener { updateCount(countView, clicker, +1) }
-            findViewById<ImageButton>(R.id.button_edit).setOnClickListener { editClickerValues(clicker, countView, nameView) }
-            findViewById<ImageButton>(R.id.button_reset).setOnClickListener { resetClickerCount(countView, clicker) }
-            findViewById<ImageButton>(R.id.button_delete).setOnClickListener { deleteClicker(position) }
+            findViewById<Button>(R.id.btn_dec).setOnClickListener { updateCount(countView, clicker, -1) }
+            findViewById<Button>(R.id.btn_inc).setOnClickListener { updateCount(countView, clicker, +1) }
+            findViewById<ImageButton>(R.id.imgBtn_edit).setOnClickListener { editClickerValues(clicker, countView, nameView) }
+            findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { resetClickerCount(countView, clicker) }
+            findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { deleteClicker(position) }
         }
+
+        return clickerView
     }
 
     private fun editClickerValues(clicker: Clicker, countView: TextView, nameView: TextView) {
@@ -50,8 +45,8 @@ class ClickerAdapter(context: Context, val list: MutableList<Clicker>) : ArrayAd
 
     private fun deleteClicker(position: Int) {
         //TODO prompt for confirmation
-        notifyDataSetChanged()
         list.removeAt(position)
+        notifyDataSetChanged()
     }
 
     private fun updateCount(countView: TextView, clicker: Clicker, i: Int) {
