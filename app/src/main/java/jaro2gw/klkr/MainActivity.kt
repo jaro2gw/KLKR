@@ -11,7 +11,7 @@ import jaro2gw.klkr.model.clicker.ClickerAdapter
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    val clickerList = LinkedList<Clicker>()
+    private val clickerList = LinkedList<Clicker>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ClickerAdapter(this, clickerList)
 
-        val add = findViewById<ImageButton>(R.id.button_add_clicker)
-        add.setOnClickListener {
+        val addClickerButton = findViewById<ImageButton>(R.id.button_add_clicker)
+        addClickerButton.setOnClickListener {
             clickerList.add(Clicker())
             adapter.notifyDataSetChanged()
         }

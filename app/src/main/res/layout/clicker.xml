@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorAccent"
     android:minHeight="@dimen/clicker_height"
+    android:maxHeight="@dimen/clicker_height"
     tools:context=".model.clicker.Clicker"
     tools:layout_editor_absoluteY="25dp">
 
@@ -59,8 +60,8 @@
             android:contentDescription="@string/button_xd"
             android:src="@android:drawable/ic_menu_revert"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/count_view"
-            app:layout_constraintStart_toStartOf="@+id/count_view" />
+            app:layout_constraintEnd_toEndOf="@+id/view_count"
+            app:layout_constraintStart_toStartOf="@+id/view_count" />
 
         <ImageButton
             android:id="@+id/button_delete"
@@ -87,18 +88,18 @@
             app:layout_constraintTop_toTopOf="@+id/button_reset" />
 
         <TextView
-            android:id="@+id/name_view"
+            android:id="@+id/view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/count_view"
-            app:layout_constraintEnd_toEndOf="@+id/count_view"
+            app:layout_constraintBottom_toTopOf="@+id/view_count"
+            app:layout_constraintEnd_toEndOf="@+id/view_count"
             app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="@+id/count_view" />
+            app:layout_constraintStart_toStartOf="@+id/view_count" />
 
         <TextView
-            android:id="@+id/count_view"
+            android:id="@+id/view_count"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -106,7 +107,7 @@
             android:layout_marginEnd="8dp"
             android:ems="10"
             android:importantForAutofill="no"
-            android:labelFor="@id/count_view"
+            android:labelFor="@id/view_count"
             android:text="@string/zero"
             android:textAlignment="center"
             android:textAllCaps="false"
