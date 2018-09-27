@@ -1,6 +1,7 @@
 package jaro2gw.klkr.model.clicker
 
 import android.content.Context
+import android.support.constraint.ConstraintLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import jaro2gw.klkr.MainActivity
 import jaro2gw.klkr.R
 
 class ClickerAdapter(context: Context, val list: MutableList<Clicker>) : ArrayAdapter<Clicker>(context, R.layout.clicker, list) {
@@ -15,6 +17,9 @@ class ClickerAdapter(context: Context, val list: MutableList<Clicker>) : ArrayAd
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val clickerView = inflater.inflate(R.layout.clicker, parent, false)
         val clicker = list[position]
+
+        val clickerLayout = clickerView.findViewById<ConstraintLayout>(R.id.conLayout_clicker)
+        clickerLayout.setBackgroundResource(clicker.color)
 
         val countView = clickerView.findViewById<TextView>(R.id.textView_count)
         countView.text = clicker.count.toString()
@@ -33,6 +38,14 @@ class ClickerAdapter(context: Context, val list: MutableList<Clicker>) : ArrayAd
         return clickerView
     }
 
+    private fun confirmationDialog() {
+
+    }
+
+    private fun editDialog() {
+
+    }
+
     private fun editClickerValues(clicker: Clicker, countView: TextView, nameView: TextView) {
         //TODO prompt for new values
     }
@@ -46,6 +59,8 @@ class ClickerAdapter(context: Context, val list: MutableList<Clicker>) : ArrayAd
     private fun deleteClicker(position: Int) {
         //TODO prompt for confirmation
         list.removeAt(position)
+
+        if (context is MainActivity) (context as MainActivity).checkForEmptyList()
         notifyDataSetChanged()
     }
 

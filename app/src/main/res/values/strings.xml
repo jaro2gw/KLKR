@@ -9,4 +9,6 @@
     <string name="title_activity_main">KLKR</string>
     <string name="button_xd">button xd</string>
     <string name="name">name</string>
+    <string name="msg_reset">Reset the count?</string>
+    <string name="msg_delete">Delete the counter?</string>
 </resources>

@@ -32,9 +32,12 @@
 
         <LinearLayout
             android:id="@+id/linLayout_empty"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
             android:gravity="center_vertical"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -56,20 +59,22 @@
                 android:layout_height="wrap_content"
                 android:text="@string/empty_list_1"
                 android:textAlignment="center"
-                android:textSize="18sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView_msg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/empty_list_2"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <ListView
             android:id="@+id/listView_clickers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
