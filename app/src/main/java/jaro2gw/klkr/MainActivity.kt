@@ -8,16 +8,17 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import jaro2gw.klkr.model.clicker.Clicker
 import jaro2gw.klkr.model.clicker.ClickerAdapter
+import jaro2gw.klkr.utils.GsonParser
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private val clickerList = LinkedList<Clicker>()
+    private val clickerList = GsonParser.readClickers() as LinkedList<Clicker>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        clickerList.clear()
+//        clickerList.clear()
         clickerList.add(Clicker("XD", 69, R.color.colorAccentDark))
 
         val adapter = ClickerAdapter(this, clickerList)
@@ -32,7 +33,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         checkForEmptyList()
+        GsonParser.writeClickers(clickerList)
         clickers.adapter = adapter
+    }
+
+    override fun onDestroy() {
+        GsonParser.writeClickers(clickerList)
+        super.onDestroy()
     }
 
     fun checkForEmptyList() {

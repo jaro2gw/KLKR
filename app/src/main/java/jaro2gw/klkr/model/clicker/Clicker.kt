@@ -3,8 +3,9 @@ package jaro2gw.klkr.model.clicker
 import android.os.Parcel
 import android.os.Parcelable
 import jaro2gw.klkr.R
+import java.io.Serializable
 
-class Clicker(var name: String? = "Clicker", var count: Int = 0, var color: Int = R.color.colorAccent) : Parcelable {
+class Clicker(var name: String? = "Clicker", var count: Int = 0, var color: Int = R.color.colorAccent) : Parcelable, Serializable {
     constructor(parcel: Parcel) : this(name = parcel.readString(), count = parcel.readInt(), color = parcel.readInt())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
