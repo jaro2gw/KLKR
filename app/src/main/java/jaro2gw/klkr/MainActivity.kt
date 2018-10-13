@@ -11,14 +11,10 @@ import jaro2gw.klkr.model.clicker.ClickerAdapter
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    //    private var parser: GsonParser? = null
     private var clickerList = LinkedList<Clicker>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-//        parser = GsonParser(filesDir)
-//        clickerList = parser!!.readClickers() as LinkedList<Clicker>
 
         setContentView(R.layout.activity_main)
 
@@ -35,16 +31,7 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
         checkForEmptyList()
-//        parser.writeClickers(clickerList)
         clickers.adapter = adapter
-    }
-
-    //    override fun onDestroy() {
-////        parser!!.writeClickers(clickerList!!)
-//        super.onDestroy()
-//    }
-    fun OnConnectionSuspended(i: Int) {
-
     }
 
     fun checkForEmptyList() {
