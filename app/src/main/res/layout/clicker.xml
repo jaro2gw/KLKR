@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/conLayout_clicker"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/clicker_height"
+    android:background="@color/colorAccent"
+    android:maxHeight="@dimen/clicker_height"
+    android:minHeight="@dimen/clicker_height"
+    tools:context=".model.clicker.Clicker"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageButton
+        android:id="@+id/imgBtn_reset"
+        android:layout_width="@dimen/menu_item"
+        android:layout_height="@dimen/menu_item"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/button_xd"
+        android:src="@android:drawable/ic_menu_revert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView_count"
+        app:layout_constraintStart_toStartOf="@+id/textView_count" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_delete"
+        android:layout_width="@dimen/menu_item"
+        android:layout_height="@dimen/menu_item"
+        android:layout_marginStart="32dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/button_xd"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_reset"
+        app:layout_constraintStart_toEndOf="@+id/imgBtn_reset"
+        app:layout_constraintTop_toTopOf="@+id/imgBtn_reset" />
+
+    <ImageButton
+        android:id="@+id/imgBtn_edit"
+        android:layout_width="@dimen/menu_item"
+        android:layout_height="@dimen/menu_item"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/button_xd"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_reset"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtn_reset"
+        app:layout_constraintTop_toTopOf="@+id/imgBtn_reset" />
+
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView_count"
+        app:layout_constraintEnd_toEndOf="@+id/textView_count"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/textView_count" />
+
+    <TextView
+        android:id="@+id/textView_count"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:labelFor="@id/textView_count"
+        android:text="@string/zero"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_inc"
+        app:layout_constraintStart_toEndOf="@+id/btn_dec"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_inc"
+        android:layout_width="75dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:elevation="2dp"
+        android:text="@string/plus"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_dec"
+        android:layout_width="75dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:elevation="2dp"
+        android:text="@string/minus"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
