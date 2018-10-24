@@ -8,33 +8,33 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import jaro2gw.klkr.model.clicker.Clicker
 import jaro2gw.klkr.model.clicker.ClickerAdapter
+import jaro2gw.klkr.model.clicker.ClickerController
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private var clickerList = LinkedList<Clicker>()
+    val clickerList = LinkedList<Clicker>()
+    lateinit var adapter: ClickerAdapter
+    lateinit var controller: ClickerController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        adapter = ClickerAdapter(this)
+        controller = ClickerController(this)
 
         setContentView(R.layout.activity_main)
 
-        clickerList.add(Clicker("XD", 69, R.color.colorAccentDark))
-
-        val adapter = ClickerAdapter(this, clickerList)
-
-        val addClickerButton = findViewById<ImageButton>(R.id.imgBtn_addClicker)
-        val clickers = findViewById<ListView>(R.id.listView_clickers)
-
-        addClickerButton.setOnClickListener {
-            clickerList.add(Clicker())
-            checkForEmptyList()
-            adapter.notifyDataSetChanged()
+//        val addClickerButton = findViewById<ImageButton>(R.id.imgBtn_addClicker)
+        findViewById<ImageButton>(R.id.imgBtn_addClicker).setOnClickListener {
+            clickerList.add(Clicker(controller))
+            updateList()
         }
-        checkForEmptyList()
-        clickers.adapter = adapter
+
+        updateList()
+        findViewById<ListView>(R.id.listView_clickers).adapter = adapter
     }
 
-    fun checkForEmptyList() {
+    fun updateList() {
+        adapter.notifyDataSetChanged()
         findViewById<LinearLayout>(R.id.linLayout_empty).visibility = if (clickerList.isEmpty()) View.VISIBLE else View.GONE
     }
 }
