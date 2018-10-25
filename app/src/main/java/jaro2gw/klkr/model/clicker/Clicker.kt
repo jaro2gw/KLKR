@@ -24,12 +24,13 @@ class Clicker(private val controller: ClickerController) {
             countView = findViewById(R.id.textView_count)
             nameView = findViewById(R.id.textView_name)
             clickerLayout = findViewById(R.id.conLayout_clicker)
+
             if (!set) {
                 findViewById<Button>(R.id.btn_dec).setOnClickListener { updateCount(-1) }
                 findViewById<Button>(R.id.btn_inc).setOnClickListener { updateCount(+1) }
                 findViewById<ImageButton>(R.id.imgBtn_edit).setOnClickListener { controller.edit(this@Clicker.position) }
-                findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { controller.reset(this@Clicker.position) }
-                findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { controller.delete(this@Clicker.position) }
+                findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { controller.prompt(this@Clicker.position, "RESET") }
+                findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { controller.prompt(this@Clicker.position, "DELETE") }
                 set = true
             }
         }
@@ -39,6 +40,7 @@ class Clicker(private val controller: ClickerController) {
         this.name = name
         this.count = count
         this.color = color
+        updateAll()
     }
 
     fun reset() {
@@ -51,7 +53,20 @@ class Clicker(private val controller: ClickerController) {
         updateCountView()
     }
 
+    private fun updateAll() {
+        updateNameView()
+        updateCountView()
+        updateBackgroundColor()
+    }
+
+    private fun updateNameView() {
+        nameView!!.text = name
+    }
+
     private fun updateCountView() {
         countView!!.text = count.toString()
     }
+
+    private fun updateBackgroundColor() = clickerLayout!!.setBackgroundResource(color)
+
 }
