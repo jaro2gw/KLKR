@@ -33,15 +33,13 @@ class ClickerController(val context: MainActivity) : MyDialogFragment.MyDialogLi
     }
 
     fun prompt(position: Int, action: String) {
-        android.R.string.cancel
+        System.err.println("PROMPTING USER FOR CONFIRMATION...")
         val dialog = MyDialogFragment()
 
         dialog.arguments = Bundle()
         with(dialog.arguments!!) {
             putInt("position", position)
             putString("action", action)
-            putString("positive", action)
-            putString("negative", context.resources.getString(android.R.string.cancel))
             putString("message", when (action) {
                 "RESET"  -> context.resources.getString(R.string.msg_reset)
                 "DELETE" -> context.resources.getString(R.string.msg_delete)
