@@ -10,7 +10,6 @@ import jaro2gw.klkr.R
 
 class ClickerAdapter(val context: MainActivity, val list: MutableList<Clicker> = context.clickerList) : ArrayAdapter<Clicker>(context, R.layout.clicker, list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-//        val clickerView = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE).inflate(R.layout.clicker, parent, false) as View
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val clickerView = inflater.inflate(R.layout.clicker, parent, false) as View
 

@@ -8,9 +8,9 @@ import android.widget.TextView
 import jaro2gw.klkr.R
 
 class Clicker(private val controller: ClickerController) {
-    private var name: String = "Clicker"
-    private var count: Int = 0
-    private var color: Int = R.color.colorAccent
+    var name: String = "Clicker"
+    var count: Int = 0
+    var color: Int = R.color.colorAccent
 
     private lateinit var countView: TextView
     private lateinit var nameView: TextView
@@ -25,9 +25,9 @@ class Clicker(private val controller: ClickerController) {
             clickerLayout = findViewById(R.id.conLayout_clicker)
             findViewById<Button>(R.id.btn_dec).setOnClickListener { updateCount(-1) }
             findViewById<Button>(R.id.btn_inc).setOnClickListener { updateCount(+1) }
-            findViewById<ImageButton>(R.id.imgBtn_edit).setOnClickListener { controller.edit(this@Clicker.position) }
-            findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { controller.prompt(this@Clicker.position, "RESET") }
-            findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { controller.prompt(this@Clicker.position, "DELETE") }
+            findViewById<ImageButton>(R.id.imgBtn_edit).setOnClickListener { controller.promptEdit(position) }
+            findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { controller.promptConfirmation(position, "RESET") }
+            findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { controller.promptConfirmation(position, "DELETE") }
         }
         updateAll()
     }
@@ -40,30 +40,22 @@ class Clicker(private val controller: ClickerController) {
     }
 
     fun reset() {
-        System.err.println("RESETTING COUNT VIEW...")
         count = 0
         updateCountView()
     }
 
     private fun updateCount(x: Int) {
-        System.err.println("UPDATING COUNT VIEW...")
         count += x
         updateCountView()
     }
 
     private fun updateAll() {
-        updateNameView()
-        updateCountView()
-        updateBackgroundColor()
-    }
-
-    private fun updateNameView() {
         nameView.text = name
+        clickerLayout.setBackgroundResource(color)
+        updateCountView()
     }
 
     private fun updateCountView() {
         countView.text = count.toString()
     }
-
-    private fun updateBackgroundColor() = clickerLayout.setBackgroundResource(color)
 }
