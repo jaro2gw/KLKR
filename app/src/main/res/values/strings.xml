@@ -11,8 +11,7 @@
     <string name="name">name</string>
     <string name="msg_reset">Reset the count?</string>
     <string name="msg_delete">Delete the counter?</string>
-    <string name="cancel">CANCEL</string>
     <string name="dont_ask_me_again">Don\'t ask me again</string>
-    <string name="edit_msg">Select your choices</string>
+    <string name="edit_msg">Customize your clicker:</string>
     <string name="edit">EDIT</string>
 </resources>

@@ -10,7 +10,7 @@ import jaro2gw.klkr.R
 class Clicker(private val controller: ClickerController) {
     var name: String = "Clicker"
     var count: Int = 0
-    var color: Int = R.color.colorAccent
+    var color: Int = android.R.color.holo_orange_light
 
     private lateinit var countView: TextView
     private lateinit var nameView: TextView
