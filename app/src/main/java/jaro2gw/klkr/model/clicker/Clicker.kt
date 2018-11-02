@@ -5,9 +5,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import jaro2gw.klkr.MainController
 import jaro2gw.klkr.R
 
-class Clicker(private val controller: ClickerController) {
+class Clicker(private val controller: MainController) {
     var name: String = "Clicker"
     var count: Int = 0
     var color: Int = android.R.color.holo_orange_light
@@ -25,9 +26,9 @@ class Clicker(private val controller: ClickerController) {
             clickerLayout = findViewById(R.id.conLayout_clicker)
             findViewById<Button>(R.id.btn_dec).setOnClickListener { updateCount(-1) }
             findViewById<Button>(R.id.btn_inc).setOnClickListener { updateCount(+1) }
-            findViewById<ImageButton>(R.id.imgBtn_edit).setOnClickListener { controller.promptEdit(position) }
-            findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { controller.promptConfirmation(position, "RESET") }
-            findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { controller.promptConfirmation(position, "DELETE") }
+            findViewById<ImageButton>(R.id.imgBtn_edit).setOnClickListener { controller.promptEdit(this@Clicker.position) }
+            findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { controller.promptConfirmation(this@Clicker.position, "RESET") }
+            findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { controller.promptConfirmation(this@Clicker.position, "DELETE") }
         }
         updateAll()
     }

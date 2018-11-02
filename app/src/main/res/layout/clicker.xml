@@ -5,11 +5,22 @@
     android:id="@+id/conLayout_clicker"
     android:layout_width="match_parent"
     android:layout_height="@dimen/clicker_height"
-    android:background="@color/colorAccent"
     android:maxHeight="@dimen/clicker_height"
     android:minHeight="@dimen/clicker_height"
     tools:context=".model.clicker.Clicker"
     tools:layout_editor_absoluteY="25dp">
+
+    <ImageButton
+        android:id="@+id/imgBtn_edit"
+        android:layout_width="@dimen/menu_item"
+        android:layout_height="@dimen/menu_item"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/button_xd"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_reset"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtn_reset"
+        app:layout_constraintTop_toTopOf="@+id/imgBtn_reset" />
 
     <ImageButton
         android:id="@+id/imgBtn_reset"
@@ -33,18 +44,6 @@
         android:src="@android:drawable/ic_menu_delete"
         app:layout_constraintBottom_toBottomOf="@+id/imgBtn_reset"
         app:layout_constraintStart_toEndOf="@+id/imgBtn_reset"
-        app:layout_constraintTop_toTopOf="@+id/imgBtn_reset" />
-
-    <ImageButton
-        android:id="@+id/imgBtn_edit"
-        android:layout_width="@dimen/menu_item"
-        android:layout_height="@dimen/menu_item"
-        android:layout_marginEnd="32dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/button_xd"
-        android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/imgBtn_reset"
-        app:layout_constraintEnd_toStartOf="@+id/imgBtn_reset"
         app:layout_constraintTop_toTopOf="@+id/imgBtn_reset" />
 
     <TextView
@@ -80,6 +79,7 @@
 
     <Button
         android:id="@+id/btn_inc"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="75dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -97,6 +97,7 @@
 
     <Button
         android:id="@+id/btn_dec"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="75dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

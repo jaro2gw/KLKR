@@ -8,10 +8,12 @@ import android.widget.ArrayAdapter
 import jaro2gw.klkr.MainActivity
 import jaro2gw.klkr.R
 
-class ClickerAdapter(val context: MainActivity, val list: MutableList<Clicker> = context.clickerList) : ArrayAdapter<Clicker>(context, R.layout.clicker, list) {
+class ClickerAdapter(private val context: MainActivity, private val list: MutableList<Clicker> = context.clickerList) : ArrayAdapter<Clicker>(context, R.layout.clicker, list) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val clickerView = inflater.inflate(R.layout.clicker, parent, false) as View
+        val clickerView = if (convertView == null) {
+            val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            inflater.inflate(R.layout.clicker, parent, false) as View
+        } else convertView
 
         list[position].update(position, clickerView)
 

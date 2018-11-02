@@ -8,13 +8,16 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import jaro2gw.klkr.model.clicker.Clicker
 import jaro2gw.klkr.model.clicker.ClickerAdapter
-import jaro2gw.klkr.model.clicker.ClickerController
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    val clickerList = LinkedList<Clicker>()
     private lateinit var adapter: ClickerAdapter
-    lateinit var controller: ClickerController
+    private lateinit var empty: LinearLayout
+    private lateinit var listView: ListView
+    private lateinit var controller: MainController
+    var clickerList = LinkedList<Clicker>()
+
+    fun getController(): MainController = controller
 
     override fun onPause() {
         System.err.println("PAUSING")
@@ -25,7 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adapter = ClickerAdapter(this)
-        controller = ClickerController(this)
+        controller = MainController(this)
+        controller.initControllers()
 
         setContentView(R.layout.activity_main)
 
@@ -34,12 +38,27 @@ class MainActivity : AppCompatActivity() {
             updateList()
         }
 
+        empty = findViewById(R.id.linLayout_empty)
+        listView = findViewById(R.id.listView_clickers)
+
+        listView.adapter = adapter
         updateList()
-        findViewById<ListView>(R.id.listView_clickers).adapter = adapter
     }
 
     fun updateList() {
         adapter.notifyDataSetChanged()
-        findViewById<LinearLayout>(R.id.linLayout_empty).visibility = if (clickerList.isEmpty()) View.VISIBLE else View.GONE
+        empty.visibility = if (clickerList.isEmpty()) View.VISIBLE else View.GONE
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        System.err.println()
+        super.onSaveInstanceState(outState)
+        //TODO sth
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        System.err.println()
+        super.onRestoreInstanceState(savedInstanceState)
+        //TODO sth
     }
 }
