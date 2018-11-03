@@ -26,13 +26,13 @@
         android:id="@+id/imgBtn_reset"
         android:layout_width="@dimen/menu_item"
         android:layout_height="@dimen/menu_item"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/button_xd"
         android:src="@android:drawable/ic_menu_revert"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView_count"
-        app:layout_constraintStart_toStartOf="@+id/textView_count" />
+        app:layout_constraintStart_toStartOf="@+id/textView_count"
+        app:layout_constraintTop_toBottomOf="@+id/textView_count" />
 
     <ImageButton
         android:id="@+id/imgBtn_delete"
@@ -59,7 +59,7 @@
 
     <TextView
         android:id="@+id/textView_count"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_marginStart="8dp"

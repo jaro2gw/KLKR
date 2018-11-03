@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
-import jaro2gw.klkr.MainActivity
 import jaro2gw.klkr.R
 
-class ColorViewAdapter(private val context: MainActivity, val colors: IntArray = ColorViewAdapter.colors) : ArrayAdapter<Int>(context, R.layout.item_color, colors.toList()) {
+class ColorViewAdapter(context: Context, val colors: IntArray = ColorViewAdapter.colors) : ArrayAdapter<Int>(context, R.layout.item_color, colors.toList()) {
     companion object {
         val colors: IntArray = intArrayOf(
                 android.R.color.holo_purple,
@@ -26,7 +25,7 @@ class ColorViewAdapter(private val context: MainActivity, val colors: IntArray =
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View = if (convertView == null) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        with(inflater.inflate(R.layout.item_color, parent, false)) {
+        with(inflater.inflate(R.layout.item_color, parent, false) as ImageView) {
             setBackgroundResource(colors[position])
             return@with this
         }

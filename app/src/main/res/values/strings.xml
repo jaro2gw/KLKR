@@ -15,4 +15,6 @@
     <string name="name">Name</string>
     <string name="count">Count</string>
     <string name="edit">EDIT</string>
+    <string name="edit_activity">Edit Activity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

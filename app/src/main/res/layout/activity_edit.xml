@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jaro2gw.klkr.dialog.edit.EditActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/name"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_name"
+        app:layout_constraintEnd_toStartOf="@+id/editText_name"
+        app:layout_constraintTop_toTopOf="@+id/editText_name" />
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/count"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_count"
+        app:layout_constraintEnd_toStartOf="@+id/editText_count"
+        app:layout_constraintTop_toTopOf="@+id/editText_count" />
+
+    <EditText
+        android:id="@+id/editText_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/count"
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toEndOf="@+id/editText_name"
+        app:layout_constraintStart_toStartOf="@+id/editText_name"
+        app:layout_constraintTop_toBottomOf="@+id/editText_name" />
+
+    <GridView
+        android:id="@+id/gridView_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:columnWidth="@dimen/color_item"
+        android:numColumns="auto_fit"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_count" />
+
+    <ImageButton
+        android:id="@+id/edit_button"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/add_button_margin"
+        android:background="@drawable/rounded_button"
+        android:contentDescription="@string/button_xd"
+        android:elevation="8dp"
+        android:src="@android:drawable/ic_menu_edit"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

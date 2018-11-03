@@ -1,87 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
+        android:id="@+id/linLayout_empty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:visibility="visible">
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
+            android:id="@+id/textView_msgOops"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:text="@string/oops"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
-    </android.support.design.widget.AppBarLayout>
+        <TextView
+            android:id="@+id/textView_msg1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_list_1"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+        <TextView
+            android:id="@+id/textView_msg2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/empty_list_2"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView_clickers"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".MainActivity"
-        tools:showIn="@layout/activity_main">
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linLayout_empty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="50dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/textView_msgOops"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/oops"
-                android:textAlignment="center"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/textView_msg1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/empty_list_1"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textView_msg2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/empty_list_2"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <ListView
-            android:id="@+id/listView_clickers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </ListView>
-
-    </android.support.constraint.ConstraintLayout>
+    </ListView>
 
     <ImageButton
         android:id="@+id/imgBtn_addClicker"
@@ -93,6 +67,8 @@
         android:contentDescription="@string/button_xd"
         android:elevation="8dp"
         android:src="@drawable/plus"
-        android:visibility="visible" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</android.support.design.widget.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>

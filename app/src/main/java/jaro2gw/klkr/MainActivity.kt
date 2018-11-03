@@ -1,11 +1,14 @@
 package jaro2gw.klkr
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ListView
+import jaro2gw.klkr.dialog.confirm.ConfirmController
 import jaro2gw.klkr.model.clicker.Clicker
 import jaro2gw.klkr.model.clicker.ClickerAdapter
 import java.util.*
@@ -25,13 +28,36 @@ class MainActivity : AppCompatActivity() {
         //TODO save clicker list state
     }
 
+    fun edit(position: Int, name: String, count: Int, color: Int) {
+        clickerList[position].edit(name, count, color)
+        updateList()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK)
+            with(data!!) {
+                edit(
+                        getIntExtra("position", -1),
+                        getStringExtra("name"),
+                        with(getStringExtra("count")) {
+                            when (this) {
+                                "", null -> 0
+                                else     -> this.toInt()
+                            }
+                        },
+                        getIntExtra("color", -1)
+                )
+            }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
         adapter = ClickerAdapter(this)
         controller = MainController(this)
-        controller.initControllers()
-
-        setContentView(R.layout.activity_main)
+        controller.confirmController = ConfirmController(this)
 
         findViewById<ImageButton>(R.id.imgBtn_addClicker).setOnClickListener {
             clickerList.add(Clicker(controller))
@@ -39,9 +65,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         empty = findViewById(R.id.linLayout_empty)
-        listView = findViewById(R.id.listView_clickers)
 
+        listView = findViewById(R.id.listView_clickers)
         listView.adapter = adapter
+
         updateList()
     }
 

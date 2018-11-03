@@ -4,7 +4,7 @@ import android.support.v4.app.DialogFragment
 import jaro2gw.klkr.MainActivity
 
 class ConfirmController(private val context: MainActivity) : ConfirmDialog.ConfirmListener {
-    val tempMap = HashMap<String, Boolean>()
+    private val tempMap = HashMap<String, Boolean>()
 
     override fun choiceSelect(action: String, checked: Boolean) {
         tempMap[action] = checked
