@@ -22,21 +22,16 @@ class ConfirmDialog : DialogFragment() {
 
     private lateinit var listener: ConfirmListener
 
-    interface ConfirmListener {
-        fun confirmClick(dialog: DialogFragment)
-        fun choiceSelect(action: String, checked: Boolean)
-    }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             with(AlertDialog.Builder(it)) {
                 setCancelable(true)
                 setTitle(arguments!!.getString("message"))
 
-                setMultiChoiceItems(arrayOf("Don't ask me again"), booleanArrayOf(false))
-                { _, _, isClicked -> listener.choiceSelect(arguments!!["action"] as String, isClicked) }
+                setMultiChoiceItems(arrayOf(resources.getString(R.string.dont_ask_me_again)), booleanArrayOf(resources.getBoolean(R.bool.dont_ask_me_again)))
+                { _, _, isClicked -> listener.choiceSelect(arguments!!, isClicked) }
 
-                setPositiveButton(arguments!!["action"] as String)
+                setPositiveButton(arguments!!.getString("action"))
                 { _, _ -> listener.confirmClick(this@ConfirmDialog) }
 
                 setNegativeButton(android.R.string.cancel)
@@ -49,11 +44,12 @@ class ConfirmDialog : DialogFragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         try {
-            listener = (context as MainActivity).getController().confirmController
+            listener = (context as MainActivity).getConfirmListener()
             with(arguments!!) {
-                putString("message", when (this["action"]) {
-                    "RESET"  -> context.resources.getString(R.string.msg_reset)
-                    "DELETE" -> context.resources.getString(R.string.msg_delete)
+                putBoolean("choice", resources.getBoolean(R.bool.dont_ask_me_again))
+                putString("message", when (getString("action")) {
+                    "RESET"  -> resources.getString(R.string.msg_reset)
+                    "DELETE" -> resources.getString(R.string.msg_delete)
                     else     -> ""
                 })
             }
