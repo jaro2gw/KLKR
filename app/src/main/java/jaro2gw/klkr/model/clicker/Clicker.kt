@@ -2,11 +2,9 @@ package jaro2gw.klkr.model.clicker
 
 import android.support.constraint.ConstraintLayout
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.TextView
 import jaro2gw.klkr.MainActivity
-import jaro2gw.klkr.R
+import kotlinx.android.synthetic.main.clicker.view.*
 
 class Clicker(private val mainActivity: MainActivity) {
     var name: String = "Clicker"
@@ -19,14 +17,14 @@ class Clicker(private val mainActivity: MainActivity) {
 
     fun update(position: Int, clickerView: View) {
         with(clickerView) {
-            countView = findViewById(R.id.textView_count)
-            nameView = findViewById(R.id.textView_name)
-            clickerLayout = findViewById(R.id.conLayout_clicker)
-            findViewById<Button>(R.id.btn_dec).setOnClickListener { mainActivity.update(position, -1) }
-            findViewById<Button>(R.id.btn_inc).setOnClickListener { mainActivity.update(position, +1) }
-            findViewById<ImageButton>(R.id.imgBtn_edit).setOnClickListener { mainActivity.promptEdit(position) }
-            findViewById<ImageButton>(R.id.imgBtn_reset).setOnClickListener { mainActivity.promptConfirm(position, "RESET") }
-            findViewById<ImageButton>(R.id.imgBtn_delete).setOnClickListener { mainActivity.promptConfirm(position, "DELETE") }
+            countView = textView_count
+            nameView = textView_name
+            clickerLayout = conLayout_clicker
+            btn_dec.setOnClickListener { mainActivity.update(position, -1) }
+            btn_inc.setOnClickListener { mainActivity.update(position, +1) }
+            imgBtn_edit.setOnClickListener { mainActivity.promptEdit(position) }
+            imgBtn_reset.setOnClickListener { mainActivity.promptConfirm(position, "RESET") }
+            imgBtn_delete.setOnClickListener { mainActivity.promptConfirm(position, "DELETE") }
         }
         updateViews()
     }
