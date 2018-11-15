@@ -5,11 +5,14 @@
     android:id="@+id/conLayout_clicker"
     android:layout_width="match_parent"
     android:layout_height="@dimen/clicker_height"
+    android:background="@drawable/round_item"
+    android:backgroundTint="@color/check"
     android:maxHeight="@dimen/clicker_height"
     android:minHeight="@dimen/clicker_height"
-    tools:context=".model.clicker.Clicker"
+    tools:context=".database.Clicker"
     tools:layout_editor_absoluteY="25dp">
 
+    <!--android:src="@android:drawable/ic_menu_edit"-->
     <ImageButton
         android:id="@+id/imgBtn_edit"
         android:layout_width="@dimen/menu_item"
@@ -17,7 +20,7 @@
         android:layout_marginEnd="32dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/button_xd"
-        android:src="@android:drawable/ic_menu_edit"
+        android:src="@drawable/ic_edit_black_24dp"
         app:layout_constraintBottom_toBottomOf="@+id/imgBtn_reset"
         app:layout_constraintEnd_toStartOf="@+id/imgBtn_reset"
         app:layout_constraintTop_toTopOf="@+id/imgBtn_reset" />
@@ -29,7 +32,7 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/button_xd"
-        android:src="@android:drawable/ic_menu_revert"
+        android:src="@drawable/ic_rotate_left_black_24dp"
         app:layout_constraintEnd_toEndOf="@+id/textView_count"
         app:layout_constraintStart_toStartOf="@+id/textView_count"
         app:layout_constraintTop_toBottomOf="@+id/textView_count" />
@@ -41,7 +44,7 @@
         android:layout_marginStart="32dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/button_xd"
-        android:src="@android:drawable/ic_menu_delete"
+        android:src="@drawable/ic_delete_black_24dp"
         app:layout_constraintBottom_toBottomOf="@+id/imgBtn_reset"
         app:layout_constraintStart_toEndOf="@+id/imgBtn_reset"
         app:layout_constraintTop_toTopOf="@+id/imgBtn_reset" />

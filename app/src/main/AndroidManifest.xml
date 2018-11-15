@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".dialog.edit.EditActivity"
+            android:name=".dialog.customize.CustomizeActivity"
             android:label="@string/edit_msg"
             android:parentActivityName=".MainActivity">
             <meta-data

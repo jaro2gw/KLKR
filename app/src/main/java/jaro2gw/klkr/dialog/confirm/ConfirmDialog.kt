@@ -7,12 +7,13 @@ import android.support.v4.app.DialogFragment
 import android.support.v7.app.AlertDialog
 import jaro2gw.klkr.MainActivity
 import jaro2gw.klkr.R
+import jaro2gw.klkr.database.Clicker
 
 class ConfirmDialog : DialogFragment() {
     companion object {
-        fun new(position: Int, action: String): ConfirmDialog = with(ConfirmDialog()) {
+        fun get(clicker: Clicker, action: String): ConfirmDialog = with(ConfirmDialog()) {
             arguments = with(Bundle()) {
-                putInt("position", position)
+                putParcelable("clicker", clicker)
                 putString("action", action)
                 this
             }
@@ -44,7 +45,7 @@ class ConfirmDialog : DialogFragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         try {
-            listener = (context as MainActivity).getConfirmListener()
+            listener = (context as MainActivity).confirmListener
             with(arguments!!) {
                 putBoolean("choice", resources.getBoolean(R.bool.dont_ask_me_again))
                 putString("message", when (getString("action")) {
@@ -53,7 +54,8 @@ class ConfirmDialog : DialogFragment() {
                     else     -> ""
                 })
             }
-        } catch (e: ClassCastException) {
+        }
+        catch (e: ClassCastException) {
             throw ClassCastException("Listener has to implement ${listener.javaClass}")
         }
     }

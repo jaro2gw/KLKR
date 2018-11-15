@@ -46,16 +46,25 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView_clickers"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_clickers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/check"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/clicker" />
 
-    </ListView>
+    <!--<ListView-->
+    <!--android:id="@+id/listView_clickers"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:visibility="visible"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
 
     <ImageButton
         android:id="@+id/imgBtn_addClicker"

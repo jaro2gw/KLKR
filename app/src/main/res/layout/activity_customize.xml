@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jaro2gw.klkr.dialog.edit.EditActivity">
+    tools:context="jaro2gw.klkr.dialog.customize.CustomizeActivity">
+
 
     <TextView
         android:id="@+id/textView"
@@ -56,30 +57,36 @@
 
     <GridView
         android:id="@+id/gridView_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:columnWidth="@dimen/color_item"
+        android:gravity="center"
         android:numColumns="auto_fit"
-        android:paddingVertical="10dp"
         android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/finish_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_count" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_count"
+        tools:listitem="@layout/color_choice" />
 
-    <ImageButton
-        android:id="@+id/edit_button"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/add_button_margin"
+    <Button
+        android:id="@+id/finish_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/rounded_button"
         android:contentDescription="@string/button_xd"
         android:elevation="8dp"
-        android:src="@android:drawable/ic_menu_edit"
-        android:visibility="visible"
+        android:text="@string/save_clicker"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

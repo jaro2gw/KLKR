@@ -4,31 +4,29 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import jaro2gw.klkr.MainActivity
+import jaro2gw.klkr.database.Clicker
 
 class ConfirmListener(private val context: MainActivity) {
     fun choiceSelect(arguments: Bundle, checked: Boolean) = arguments.putBoolean("choice", checked)
 
-    private fun reset(position: Int) = context.getClickers()[position].reset()
-
-    private fun delete(position: Int) = context.getClickers().removeAt(position)
-
-    private fun performActionWithChoice(position: Int, action: String, choice: Boolean) = with(context) {
-        performAction(position, action)
+    private fun performActionWithChoice(clicker: Clicker, action: String, choice: Boolean) = with(context) {
+        performAction(clicker, action)
         getPreferences(Context.MODE_PRIVATE)
                 .edit()
                 .putBoolean(action, choice)
                 .apply()
     }
 
-    fun performAction(position: Int, action: String) = with(context) {
+    fun performAction(clicker: Clicker, action: String) = with(context) {
         when (action) {
-            "RESET"  -> reset(position)
-            "DELETE" -> delete(position)
+            "RESET"  -> reset(clicker)
+            "DELETE" -> delete(clicker)
+            else     -> {
+            }
         }
-        updateList()
     }
 
     fun confirmClick(dialog: DialogFragment) = with(dialog.arguments!!) {
-        performActionWithChoice(getInt("position"), getString("action")!!, getBoolean("choice"))
+        performActionWithChoice(getParcelable("clicker")!!, getString("action")!!, getBoolean("choice"))
     }
 }
