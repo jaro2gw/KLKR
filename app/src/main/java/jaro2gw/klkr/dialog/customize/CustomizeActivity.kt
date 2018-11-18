@@ -16,8 +16,12 @@ class CustomizeActivity : AppCompatActivity() {
 
         clicker = intent.getParcelableExtra("clicker")
         gridView_color.adapter = ColorViewAdapter(this)
+
         editText_name.setText(clicker.name)
+//        editText_name.setSelectAllOnFocus(true)
+
         editText_count.setText(clicker.count.toString())
+        editText_count.setSelectAllOnFocus(true)
 
         finish_button.setOnClickListener {
             clicker.name = editText_name.text.toString()
@@ -30,5 +34,7 @@ class CustomizeActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK, Intent().putExtra("clicker", clicker))
             finish()
         }
+
+        gridView_color.requestFocus()
     }
 }

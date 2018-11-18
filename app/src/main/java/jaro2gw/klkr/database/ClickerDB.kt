@@ -32,7 +32,10 @@ abstract class ClickerDB : RoomDatabase() {
         class PopulateDBAsync(db: ClickerDB) : AsyncTask<Unit, Unit, Unit>() {
             private val mDAO = db.clickerDAO()
 
-            override fun doInBackground(vararg params: Unit?) = mDAO.deleteAll()
+            override fun doInBackground(vararg params: Unit?) {
+                mDAO.deleteAll()
+                //TODO read database from file
+            }
         }
     }
 

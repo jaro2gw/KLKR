@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var clickerAdapter: ClickerAdapter
     internal lateinit var confirmListener: ConfirmListener
 
+    override fun onPause() {
+        super.onPause()
+        //TODO write database to file using GSON
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -40,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-//        updateList()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,9 +76,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun customizeIntent(clicker: Clicker) = Intent(this, CustomizeActivity::class.java).putExtra("clicker", clicker)
-//                    .putExtra("name", clicker.name)
-//                    .putExtra("count", clicker.count.toString())
-//                    .putExtra("color", clicker.color)
 
     fun promptEdit(clicker: Clicker) = startActivityForResult(customizeIntent(clicker), EDIT_REQUEST_CODE)
 
