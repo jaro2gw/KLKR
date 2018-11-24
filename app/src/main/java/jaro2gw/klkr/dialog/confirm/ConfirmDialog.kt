@@ -6,15 +6,17 @@ import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.support.v7.app.AlertDialog
 import jaro2gw.klkr.MainActivity
+import jaro2gw.klkr.MainActivity.Action.DELETE
+import jaro2gw.klkr.MainActivity.Action.RESET
 import jaro2gw.klkr.R
 import jaro2gw.klkr.database.Clicker
 
 class ConfirmDialog : DialogFragment() {
     companion object {
-        fun get(clicker: Clicker, action: String): ConfirmDialog = with(ConfirmDialog()) {
+        fun get(clicker: Clicker, action: MainActivity.Action): ConfirmDialog = with(ConfirmDialog()) {
             arguments = with(Bundle()) {
                 putParcelable("clicker", clicker)
-                putString("action", action)
+                putSerializable("action", action)
                 this
             }
             this
@@ -30,9 +32,9 @@ class ConfirmDialog : DialogFragment() {
                 setTitle(arguments!!.getString("message"))
 
                 setMultiChoiceItems(arrayOf(resources.getString(R.string.dont_ask_me_again)), booleanArrayOf(resources.getBoolean(R.bool.dont_ask_me_again)))
-                { _, _, isClicked -> listener.choiceSelect(arguments!!, isClicked) }
+                { _, _, isClicked -> arguments!!.putBoolean("choice", isClicked) }
 
-                setPositiveButton(arguments!!.getString("action"))
+                setPositiveButton(arguments!!.getSerializable("action").let { action -> action as MainActivity.Action }.name)
                 { _, _ -> listener.confirmClick(this@ConfirmDialog) }
 
                 setNegativeButton(android.R.string.cancel)
@@ -48,10 +50,10 @@ class ConfirmDialog : DialogFragment() {
             listener = (context as MainActivity).confirmListener
             with(arguments!!) {
                 putBoolean("choice", resources.getBoolean(R.bool.dont_ask_me_again))
-                putString("message", when (getString("action")) {
-                    "RESET"  -> resources.getString(R.string.msg_reset)
-                    "DELETE" -> resources.getString(R.string.msg_delete)
-                    else     -> ""
+                putString("message", when (getSerializable("action") as MainActivity.Action) {
+                    RESET  -> resources.getString(R.string.msg_reset)
+                    DELETE -> resources.getString(R.string.msg_delete)
+                    else   -> ""
                 })
             }
         }

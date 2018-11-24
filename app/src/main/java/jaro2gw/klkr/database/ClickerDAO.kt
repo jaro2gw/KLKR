@@ -14,9 +14,6 @@ interface ClickerDAO {
     @Update
     fun update(clicker: Clicker)
 
-//    @Query("UPDATE clicker_table SET name = :name, count = :count, color = :color WHERE id = :id")
-//    fun update(name: String, count: Int, color: Int, id: Int)
-
     @Query("UPDATE clicker_table SET count = 0 where id = :id")
     fun reset(id: Int)
 

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import jaro2gw.klkr.MainActivity
+import jaro2gw.klkr.MainActivity.Action.DELETE
+import jaro2gw.klkr.MainActivity.Action.RESET
 import jaro2gw.klkr.R
 import kotlinx.android.synthetic.main.clicker.view.*
 
@@ -31,8 +33,8 @@ class ClickerAdapter(val context: MainActivity) : RecyclerView.Adapter<ClickerAd
                 btn_dec.setOnClickListener { this@ClickerAdapter.context.updateCount(this, -1) }
                 btn_inc.setOnClickListener { this@ClickerAdapter.context.updateCount(this, +1) }
                 imgBtn_edit.setOnClickListener { this@ClickerAdapter.context.promptEdit(this) }
-                imgBtn_reset.setOnClickListener { this@ClickerAdapter.context.promptConfirm(this, "RESET") }
-                imgBtn_delete.setOnClickListener { this@ClickerAdapter.context.promptConfirm(this, "DELETE") }
+                imgBtn_reset.setOnClickListener { this@ClickerAdapter.context.promptConfirm(this, RESET) }
+                imgBtn_delete.setOnClickListener { this@ClickerAdapter.context.promptConfirm(this, DELETE) }
             }
         }
     }

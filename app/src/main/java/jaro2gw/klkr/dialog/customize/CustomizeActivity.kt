@@ -18,7 +18,6 @@ class CustomizeActivity : AppCompatActivity() {
         gridView_color.adapter = ColorViewAdapter(this)
 
         editText_name.setText(clicker.name)
-//        editText_name.setSelectAllOnFocus(true)
 
         editText_count.setText(clicker.count.toString())
         editText_count.setSelectAllOnFocus(true)

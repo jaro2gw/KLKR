@@ -32,16 +32,8 @@ data class Clicker(@ColumnInfo(name = "name") var name: String = "Clicker",
 
     override fun describeContents() = 0
 
-//    fun set(name: String, count: Int, color: Int) {
-//        this.name = name
-//        this.count = count
-//        this.color = color
-//    }
-
     companion object CREATOR : Parcelable.Creator<Clicker> {
-        override fun createFromParcel(parcel: Parcel): Clicker {
-            return Clicker(parcel)
-        }
+        override fun createFromParcel(parcel: Parcel): Clicker = Clicker(parcel)
 
         override fun newArray(size: Int): Array<Clicker?> = arrayOfNulls(size)
     }
