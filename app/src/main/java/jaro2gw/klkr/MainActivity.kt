@@ -31,11 +31,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var clickerAdapter: ClickerAdapter
     internal lateinit var confirmListener: ConfirmListener
 
-    override fun onPause() {
-        super.onPause()
-        //TODO write database to file
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK)

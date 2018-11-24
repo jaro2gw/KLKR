@@ -14,12 +14,8 @@ class ConfirmListener(private val context: MainActivity) {
     }
 
     fun performAction(clicker: Clicker, action: MainActivity.Action) = with(context) {
-        when (action) {
-            RESET  -> reset(clicker)
-            DELETE -> delete(clicker)
-            else   -> {
-            }
-        }
+        if (action == RESET) reset(clicker)
+        else if (action == DELETE) delete(clicker)
     }
 
     fun confirmClick(dialog: DialogFragment) = with(dialog.arguments!!) {
