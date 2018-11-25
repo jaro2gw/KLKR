@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-@Database(entities = [Clicker::class], version = 2, exportSchema = false)
+@Database(entities = [Clicker::class], version = 1, exportSchema = false)
 abstract class ClickerDB : RoomDatabase() {
     companion object {
         var INSTANCE: ClickerDB? = null

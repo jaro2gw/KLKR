@@ -15,8 +15,4 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <!--<style name="ColorCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">-->
-    <!--<item name="android:button">?android:attr/listChoiceIndicatorMultiple</item>-->
-    <!--</style>-->
 </resources>

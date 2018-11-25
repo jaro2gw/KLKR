@@ -12,7 +12,6 @@
     tools:context=".database.Clicker"
     tools:layout_editor_absoluteY="25dp">
 
-    <!--android:src="@android:drawable/ic_menu_edit"-->
     <ImageButton
         android:id="@+id/imgBtn_edit"
         android:layout_width="@dimen/menu_item"
