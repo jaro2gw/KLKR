@@ -8,7 +8,7 @@ import android.content.Context
 @Database(entities = [Clicker::class], version = 1, exportSchema = false)
 abstract class ClickerDB : RoomDatabase() {
     companion object {
-        var INSTANCE: ClickerDB? = null
+        private var INSTANCE: ClickerDB? = null
 
         fun getDatabase(context: Context): ClickerDB {
             synchronized(ClickerDB::class) {
