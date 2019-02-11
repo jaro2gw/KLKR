@@ -1,14 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <string name="app_name">KLKR</string>
-    <string name="plus">+</string>
-    <string name="empty_list_1">Looks like you have no clicker set up</string>
+    <string name="title_activity_main">KLKR</string>
     <string name="oops">Oops!</string>
+    <string name="empty_list_1">Looks like you have no clicker set up</string>
     <string name="empty_list_2">Add one using the button at the bottom of the screen</string>
+    <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="zero">0</string>
-    <string name="title_activity_main">KLKR</string>
     <string name="button_xd">button xd</string>
-    <string name="name">name</string>
     <string name="msg_reset">Reset the count?</string>
     <string name="msg_delete">Delete the counter?</string>
+    <string name="dont_ask_me_again">Don\'t ask me again</string>
+    <string name="edit_msg">Customize your clicker:</string>
+    <string name="name">Name</string>
+    <string name="count">Count</string>
+    <string name="edit">EDIT</string>
+    <string name="edit_activity">Edit Activity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="color_select">color select</string>
+    <string name="save_clicker">SAVE CLICKER</string>
 </resources>

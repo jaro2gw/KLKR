@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+    android:layout_width="@dimen/color_item"
+    android:layout_height="@dimen/color_item"
+    android:background="@drawable/ic_check_box_black_solid_24dp"
+    android:backgroundTint="@color/check"
+    android:contentDescription="@string/color_select" />
