@@ -19,7 +19,4 @@ interface ClickerDAO {
 
     @Delete
     fun delete(clicker: Clicker)
-
-    @Query("DELETE FROM clicker_table")
-    fun deleteAll()
 }

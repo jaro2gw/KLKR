@@ -105,5 +105,5 @@ class MainActivity : AppCompatActivity() {
         makeToast(Action.DELETE)
     }
 
-    private fun makeToast(action: Action) = toastMap.forEach { a, t -> if (a == action) t.show() else t.cancel() }
+    private fun makeToast(action: Action) = toastMap.forEach { (a, t) -> if (a == action) t.show() else t.cancel() }
 }
